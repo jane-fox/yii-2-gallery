@@ -1,0 +1,25 @@
+{% set page_title = "Error" %}
+
+{% extends "@app/views/layouts/main.twig" %}
+
+{% block content %}
+
+<div class="site-error">
+    <h2>{{this.title}}</h2>
+    <div class="alert alert-danger">
+       <b>{{name}}: </b>{{message|nl2br}}<br/>
+		<i>
+		{% if app.components.view.renderers.twig.options.debug is defined %}
+			{{exception}}
+		{% else %}
+			<p>
+				Move along, nothing to see here. Sorry!
+			</p>
+		{% endif %}
+	   </i>
+    </div>
+
+
+</div>
+
+{% endblock %}

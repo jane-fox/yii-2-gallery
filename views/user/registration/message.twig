@@ -1,0 +1,9 @@
+{% set page_title = title %}
+
+{% extends "@app/views/layouts/main.twig" %}
+
+{% block content %}
+
+{% include "@app/views/alert.twig" with { 'module' : module } %}
+
+{% endblock %}

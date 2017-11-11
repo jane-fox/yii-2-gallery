@@ -1,0 +1,26 @@
+{% set page_title = "Delete post" %}
+{% extends "@app/views/layouts/main.twig" %}
+
+{% block content %}
+
+{{ use('yii/widgets/ActiveForm') }}
+
+<div class="post-update">
+
+    <h1>{{ page_title }}</h1>
+	
+		{% set form = active_form_begin({
+			'id' : 'delete-form'
+		}) %}
+
+
+	Are you sure?
+
+	<div class="form-group">
+		{{ html.submitButton('Confirm deletion', {'class' : 'btn btn-danger'}) | raw }}
+	</div>
+
+	{{ active_form_end() }}
+
+</div>
+{% endblock %}

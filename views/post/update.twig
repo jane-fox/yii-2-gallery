@@ -1,0 +1,43 @@
+{% set page_title = "Update Post" ~ model.id %}
+{% extends "@app/views/layouts/main.twig" %}
+
+{% block content %}
+
+{{ use('yii/widgets/ActiveForm') }}
+
+<div class="post-update">
+
+    <h2>{{page_title}}</h2>
+
+    <div class="post-form">
+	
+		{% set form = active_form_begin({
+			'id' : 'update-form',
+			'options' : {'enctype' : 'multipart/form-data'},
+		}) %}
+
+        {% include "@app/views/post/elements/tag_picker.twig" %}
+
+        <div class="row margin-bottom">
+            <div class="col-sm-8 col-sm-offset-2 ">
+                {{ form.field(model, 'text').textarea().label("Description &nbsp; <small> (optional)</small>") | raw }}
+            </div>
+        </div>
+
+        <div class="col-sm-8 col-sm-offset-2">
+            {{ html.submitButton(model.isNewRecord ? 'Create' : 'Update', {'class' : 'btn btn-lg btn-primary' }) | raw }}
+        </div>
+
+        <div class="form-group">
+        </div>
+
+        {{ active_form_end() }}
+
+    </div>
+
+    <div class="col-sm-10">
+        {{ html.a('Delete', '../delete/' ~ model.id, {'class' : 'btn btn-danger pull-right'}) | raw }}
+    </div>
+
+</div>
+{% endblock %}

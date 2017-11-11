@@ -1,0 +1,39 @@
+{% set page_title = "Viewing post by " ~ model.getOwner().username %}
+
+{% extends "@app/views/layouts/main.twig" %}
+
+{% block content %}
+<div class="post-view">
+	<div class="text-center margin-bottom">
+		{% if model.type=="video" %}
+			<div class="row">
+				<video controls autoplay preload="auto"
+					   src="{{app.params.basePath}}/uploads/video/{{model.file}}"
+					   class="video-js "
+					   data-setup='{}'>
+				</video>
+			</div>
+		{% else %}
+			<img src="{{app.params.basePath}}/uploads/image/{{model.file}}">
+		{% endif %}
+	</div>
+	<div class="row post-info">
+		<div class="col-xs-4">Posted by: <a href="{{app.params.basePath}}/profile/{{model.getOwner().username}}">{{model.getOwner().username}}</a></div>
+		<div class="col-xs-4">Views: {{model.views}}</div>
+		<div class="col-xs-4">Faves: {{faves}}
+			{% if model.owner!=app.user.identity.id %}
+				{{ html.a(is_faved ? '-Fave' : '+Fave', 'fave/' ~ model.id, {'class' : 'btn btn-success'}) | raw }}
+			{% endif %}
+		</div>
+	</div>
+	<p>
+		{{model.text|nl2br}}
+	</p>
+	{% if app.user.identity.isAdmin or model.owner == app.user.identity.id %}
+		<p id="post-controls">
+			{{ html.a('Update', 'update/' ~ model.id, {'class' : 'btn btn-primary', 'id' : model.id}) | raw }}
+		</p>
+	{% endif %}
+
+</div>
+{% endblock %}

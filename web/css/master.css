@@ -1,0 +1,255 @@
+/*
+
+
+
+style guide
+
+*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Josefin+Sans|Raleway|Dosis|Oswald);
+html {
+  background: url("../images/fur.jpg") top center repeat transparent; }
+
+body {
+  background: none;
+  color: #CCC;
+  font-family: "Raleway", "Open Sans", sans-serif; }
+
+#underlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: none;
+  background: radial-gradient(transparent, rgba(0, 0, 0, 0.6)); }
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: "Dosis", "Open Sans", serif;
+  color: #CCC; }
+
+a {
+  color: #ae3118; }
+
+a:hover {
+  color: #b91100; }
+
+img, video, .video-js {
+  max-width: 100%; }
+
+.margin-bottom {
+  margin-bottom: 15px; }
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+#site-wrapper {
+  background-color: #2d2a26;
+  z-index: 10;
+  position: relative;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.5); }
+
+#main-content {
+  z-index: 20;
+  padding-top: 20px; }
+  #main-content h2 {
+    font-size: 36px;
+    margin-top: 0px; }
+
+#site-footer {
+  display: block;
+  border-top: 1px solid #4b1700;
+  margin-top: 25px;
+  padding: 25px;
+  box-shadow: inset 0 1px 5px 0px rgba(0, 0, 0, 0.5); }
+
+.browsehappy {
+  margin: .5em;
+  padding: .5em;
+  text-align: center;
+  font-size: 2em; }
+
+.thumb {
+  width: 45%;
+  height: 250px;
+  margin: 2%;
+  display: inline-block;
+  box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.5);
+  border-top: 1px solid rgba(169, 169, 169, 0.2);
+  border-left: 1px solid rgba(169, 169, 169, 0.1);
+  text-align: center;
+  overflow: hidden;
+  float: left;
+  border-radius: 5px;
+  position: relative;
+  transition: .5s;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+@media (min-width: 992px) {
+  .thumb {
+    width: 30%;
+    height: 250px;
+    margin: 1.5%; } }
+@media (min-width: 1200px) {
+  .thumb {
+    width: 23%;
+    height: 250px;
+    margin: 1%; } }
+.thumb .overflow_center {
+  display: inline-block;
+  position: relative;
+  right: -50%;
+  top: -50%;
+  height: 250px; }
+
+.thumb img {
+  display: block;
+  position: relative;
+  left: -50%;
+  bottom: -50%; }
+
+.thumb .post-type-video {
+  width: 32px;
+  height: 32px;
+  transform: rotate(35deg);
+  background-image: url("../images/video.png");
+  display: block; }
+
+.page-number {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  padding: 1px 4px;
+  border-radius: 5px;
+  border-bottom-right-radius: 0px;
+  background-color: #999999;
+  background-color: rgba(169, 169, 169, 0.5);
+  border: 1px solid #666;
+  color: #000;
+  z-index: 40;
+  font-family: "Open Sans",sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.4); }
+
+#tag-picker {
+  margin-top: 15px;
+  margin-bottom: 30px; }
+  #tag-picker .tag {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px;
+    font-family: "Dosis", "Open Sans", serif;
+    font-weight: normal;
+    text-align: left;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    font-size: 1.5em;
+    min-width: 125px;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba(169, 169, 169, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px; }
+    #tag-picker .tag input {
+      margin-right: 5px; }
+
+/*
+
+
+
+style guide
+
+*/
+#site-header {
+  height: 115px;
+  position: relative;
+  border-bottom: 2px solid #4b1700;
+  background: url("../images/fur2.jpg") top left #0f0015;
+  background-size: cover;
+  box-shadow: inset 0px 0px 5px 0px black; }
+
+#site-logo {
+  float: left;
+  padding: .25em;
+  margin: 0px;
+  font-size: 48px;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+  font-family: "Oswald"; }
+  #site-logo a {
+    color: #000;
+    text-decoration: none; }
+
+#site-nav {
+  position: absolute;
+  right: 8vw;
+  bottom: 0px; }
+  #site-nav a {
+    background-color: #1F1C19;
+    text-decoration: none;
+    font-family: "Oswald", "Raleway", sans-serif;
+    font-size: 2em;
+    display: inline-block;
+    padding: 5px 20px;
+    margin: 0px 8px;
+    height: 50px;
+    border-top: 1px solid #4b1700;
+    border-radius: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-shadow: 1px 1px 1px #000;
+    box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.5); }
+    #site-nav a.active {
+      position: relative;
+      background-color: #2d2a26;
+      bottom: -4px; }
+
+#account-nav {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: #4b1700;
+  margin: 0;
+  border-bottom-left-radius: 5px;
+  text-shadow: 1px 1px 1px #000;
+  box-shadow: -1px 1px 1px 0px rgba(0, 0, 0, 0.5); }
+  #account-nav a {
+    color: #FFF;
+    padding: 10px;
+    font-weight: bold;
+    display: inline-block; }
+
+.post-create .dropzone {
+  background: none;
+  text-align: center;
+  border: 2px solid #6b54ff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px 0px rgba(200, 200, 200, 0.3);
+  margin: 1em; }
+  .post-create .dropzone .dz-message {
+    font-size: 3em;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    margin: 1.5em 0px; }
+    .post-create .dropzone .dz-message a {
+      font-size: .4em; }
+  .post-create .dropzone .dz-preview.dz-image-preview {
+    background: none; }
+  .post-create .dropzone .dz-preview .dz-image {
+    width: auto;
+    height: auto; }
+.post-create input[type=file] {
+  display: none; }
+
+/*
+@import url('style.css');
+@import url('header.css');
+@import url('admin.css');
+*/
+
+/*# sourceMappingURL=master.css.map */

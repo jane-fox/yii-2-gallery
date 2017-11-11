@@ -1,0 +1,18 @@
+{% set page_title = "About" %}
+{% extends "@app/views/layouts/main.twig" %}
+
+{% block content %}
+
+{#
+$this->params['breadcrumbs'][] = $this->title;
+#}
+
+<div class="site-about">
+    <h1>{{this.title}}</h1>
+    <p>
+        This is the About page. You may modify the following file to customize its content:
+    </p>
+    <code>views/site/about.twig</code>
+</div>
+
+{% endblock %}

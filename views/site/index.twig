@@ -1,0 +1,16 @@
+{% set page_title = "Home" %}
+{% extends "@app/views/layouts/main.twig" %}
+
+{% block content %}
+
+	<div class="site-index">
+
+		<div class="">
+			<h2>Come look at some fuzzy butts!</h2>
+		</div>
+
+		{% for post in posts %}
+			{% include "@app/views/post/elements/thumbnail.twig" with { 'post' : post } %}
+		{% endfor %}
+	</div>
+{% endblock %}

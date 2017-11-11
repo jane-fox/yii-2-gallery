@@ -1,0 +1,44 @@
+
+{% set page_title = "Viewing profile of " ~ user.username %}
+
+{% extends "@app/views/layouts/main.twig" %}
+
+{#<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+?>#}
+
+{% block content %}
+
+<div class="profile-view">
+
+	{% include "@app/views/profile/elements/header.twig" with { 'user' : user, 'post_count' : post_count, 'fave_count' : fave_count } %}
+
+	<table style="width:100%;table-layout:fixed;">
+		<tr>
+			<td style="vertical-align:top;">
+				<h3>
+					Recent posts
+					<a href="{{app.params.basePath}}/profile/{{user.username}}/posts">View all</a>
+				</h3>
+				{% for post in recent_posts %}
+					{% include "@app/views/post/elements/thumbnail.twig" with { 'post' : post } %}			
+				{% endfor %}
+			</td>
+			<td style="vertical-align:top;">
+				<h3>
+					Faves
+					<a href="{{app.params.basePath}}/profile/{{user.username}}/faves">View all</a>
+				</h3>
+				{% for post in recent_faves %}
+					{% include "@app/views/post/elements/thumbnail.twig" with { 'post' : post } %}			
+				{% endfor %}
+			</td>
+		</tr>
+	</table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% set page_title = "Viewing posts" %}
+{% extends "@app/views/layouts/main.twig" %}
+
+{% block content %}
+
+<div class="post-index">
+
+    <h2>{{this.title}}</h2>
+
+	{% for post in posts %}
+		{% include "@app/views/post/elements/thumbnail.twig" with { 'post' : post } %}			
+	{% endfor %}
+
+</div>
+
+{% endblock %}

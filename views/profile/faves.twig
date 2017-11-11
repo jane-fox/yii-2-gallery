@@ -1,0 +1,16 @@
+{% set page_title = "Viewing faves from " ~ user.username %}
+{% extends "@app/views/layouts/main.twig" %}
+
+{% block content %}
+
+<div class="profile-view">
+	{% include "@app/views/profile/elements/header.twig" with { 'user' : user, 'post_count' : post_count, 'fave_count' : fave_count } %}
+	<h3>
+		All of {{user.username}}'s faves
+	</h3>
+	{% for post in faves %}
+		{% include "@app/views/post/elements/thumbnail.twig" with { 'post' : post } %}			
+	{% endfor %}
+</div>
+
+{% endblock %}

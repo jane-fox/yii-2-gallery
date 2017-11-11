@@ -1,0 +1,318 @@
+
+body {
+
+	background-color:#0e0012;
+	color:#fff;
+
+    background: url('../images/txtr.png') top center repeat transparent;
+
+
+
+    font-family: "Raleway","Open Sans", sans-serif;
+    font-size:14px;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+    font-family: "Josefin Sans","Open Sans",serif;
+}
+
+
+a {
+	color:#e12e61;
+}
+
+a:hover {
+    color:#ff6792;
+}
+
+p {
+	margin:15px 8px;
+}
+
+h1 {
+    margin:0px;
+}
+
+input {
+    color:#000;
+}
+
+#site_wrapper {
+    background-color:#0f0015;
+    z-index:10;
+    position:relative;
+}
+
+#site_header {
+    background-color: #070008;
+}
+
+
+
+.main-content {
+    background-color:#180d1b;
+    border-top:1px solid #2f1a33;
+    border-left:1px solid #201025;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    padding-top:15px;
+}
+
+.bg-left {
+    background:url("../images/bg-edge.png") 0px 0px repeat-y transparent;
+
+    position: absolute;
+    left:-250px;
+    top:0px;
+    bottom:0px;
+    right:0px;
+
+    z-index:-1;
+}
+
+.bg-right {
+    background:url("../images/bg-edge.png") right center repeat-y transparent;
+
+    position: absolute;
+    right:-250px;
+    top:0px;
+    bottom:0px;
+    left:0px;
+
+    z-index:-1;
+}
+
+h3.box_title {
+	padding:4px;
+	display:block;
+	text-align:center;
+	font-weight:bold;
+	
+}
+
+strong {
+	font-size:1.05em;
+	margin:5px;
+}
+
+.screen {
+    background: url('../img/outlets.png') top center repeat transparent;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+
+    z-index: 10;
+
+}
+
+#profile {
+	
+	margin:10px 1%;
+	padding:10px;
+	border:1px solid #000;
+}
+
+#left_column {
+	width:47%;
+	float:left;
+	margin:10px 1%;
+	border:1px solid #000;
+}
+
+#right_column {
+	width:47%;
+	float:right;
+	margin:10px 1%;
+	border:1px solid #000;
+
+
+
+
+}
+
+.box {
+	border:1px solid #000;
+}
+
+.box h3 {
+	background-color:#444;
+}
+
+.content h2 {
+    font-size: 36px;
+    line-height: 36px;
+    text-transform: capitalize;
+    margin-bottom:10px;
+
+}
+
+#submission {
+	display:block;
+	margin:20px auto;
+	border:1px solid #666;
+	padding:4px;
+}
+
+#submission_info {
+	margin:1%;
+	padding:1%;
+}
+
+.comment {
+
+	border:1px dotted #000;
+	margin:10px;
+}
+
+.big-error {
+	color:#933;
+	text-align:center;
+	display:block;
+	font-size:2em;
+}
+
+.footer{
+	clear:both;
+	border-top: 1px solid #999;
+	line-height: 32px;
+	padding: 0 10px 0 10px;
+	margin: 20px 0 0 0;
+}
+
+.footer p {
+	float: right;
+	text-align: right;
+	font-size: 11px;
+	padding: 5px 10px 0 10px;
+	margin: 0px;
+}
+
+
+.content {
+    margin:20px 40px;
+    background-color:#222222;
+    padding:10px;
+    border-radius: 10px;
+    border-top: 5px solid #512;
+}
+
+
+
+
+
+.thumb {
+    width:45%;
+    height:250px;
+    margin:2%;
+    display:inline-block;
+
+
+    -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.75);
+
+    border-top:1px solid rgba(169,169,169,.2);
+    border-left:1px solid rgba(169,169,169,.1);
+
+    text-align: center;
+    overflow: hidden;
+    float: left;
+    border-radius: 5px;
+    position:relative;
+
+    transition:.5s;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+
+
+@media (min-width: 992px) {
+
+    .thumb {
+        width:30%;
+        height:250px;
+        margin:1.5%;
+
+    }
+
+
+}
+
+@media (min-width: 1200px) {
+
+    .thumb {
+        width:23%;
+        height:250px;
+        margin:1%;
+
+    }
+
+
+}
+
+.thumb:hover {
+
+
+}
+
+.thumb .overflow_center {
+    display: inline-block;
+    position: relative;
+    right: -50%;
+    top:-50%;
+
+    height:250px;
+}
+
+
+.thumb img {
+    display:block;
+    position: relative;
+    left: -50%;
+    bottom:-50%;
+
+
+
+}
+
+
+
+.page-number {
+    position: absolute;
+    bottom:-1px;
+    right:-1px;
+    padding:1px 4px;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    background-color: #999999;
+    background-color: rgba(169,169,169,.5);
+    border:1px solid #666;
+    color:#000;
+    z-index:40;
+
+    font-family: "Open Sans",sans-serif;
+    font-weight:bold;
+    font-size: 12px;
+    text-shadow: 0 0 3px rgba(255,255,255,.4);
+}
+
+
+
+.view {
+    display: block;
+    clear:both;
+}
+
+#sidebar ul {
+    margin:0px;
+    padding:0px;
+}
+
+#sidebar li {
+    list-style-type: none;
+    margin-top:3px;
+}
+

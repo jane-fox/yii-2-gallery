@@ -1,0 +1,69 @@
+{% macro tag(tag) %}
+   <label class='tag no-select'><input name='{{tag}}' type='checkbox' data-tag='{{tag}}'>{{tag}}</label>
+{% endmacro %}
+
+{% import _self as mself %}
+
+<div class="row" id="tag-picker">
+
+	<div class="col-md-8 col-md-offset-2">
+
+		<h3 class="margin-bottom">Everyone loves a good tagger!</h3>
+
+		<div class="col-sm-6 text-center">
+
+			<p>You should start with this one <span class="glyphicon glyphicon-share-alt" style=" transform: rotate(90deg);"></span> </p>
+
+			<div class="row ">
+				<div class="col-xs-12 margin-bottom">
+					{{ mself.tag("Fun") }}
+				</div>
+
+				<div class="col-sm-6">
+					{{ mself.tag("High") }}
+					{{ mself.tag("Low") }}
+				</div>
+
+				<div class="col-sm-6">
+					{{ mself.tag("Canine") }}
+					{{ mself.tag("Feline") }}
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div class="col-sm-6 text-center">
+			{{ mself.tag("Test") }}
+			{{ mself.tag("Tags") }}
+			{{ mself.tag("Easy") }}
+			{{ mself.tag("Click") }}
+			{{ mself.tag("Cool") }}
+			{{ mself.tag("Sweet") }}
+			{{ mself.tag("Rad") }}
+			{{ mself.tag("Great") }}
+		</div>
+	</div>
+
+
+	<div class="col-sm-8 col-sm-offset-2">
+		<textarea name="tags" class="form-control" ></textarea>
+	</div>
+
+
+</div>
+
+
+
+
+
+<script id="search-template" type="text/template">
+         _.each( $thing, function(profile) { %>
+            <div class="profile">
+		<b><a href="<% print(base_url) %>/profile/<%= profile.name %>"><%= profile.name %></a></b>
+		<p>Also known by: <%= profile.id %></p>
+	</div>
+        }) %>
+    </script>
+

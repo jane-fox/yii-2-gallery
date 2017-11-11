@@ -1,0 +1,114 @@
+{% set page_title = "Create Post" %}
+{% extends "@app/views/layouts/main.twig" %}
+
+{#
+$this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>#}
+
+{% block content %}
+
+{{ use('yii/widgets/ActiveForm') }}
+
+<div class="post-create">
+    <h2>Upload New</h2>
+	<div class="dropzone">
+		<div class="dz-default dz-message dz-clickable">
+			<span>Drop your file here to upload</span>
+			<p><a href="#" id="dz-btn">Or click here</a></p>
+		</div>
+	</div>
+
+	<div class="post-form">
+
+		{% set form = active_form_begin({
+			'id' : 'dropzone-form',
+			'options' : {'enctype' : 'multipart/form-data'},
+		}) %}
+
+		{{ form.field(model, 'file').hiddenInput().label(false) | raw }}
+		{{ form.field(model, 'thumb').hiddenInput().label(false) | raw }}
+		{{ form.field(model, 'type').hiddenInput().label(false) | raw }}
+
+		{% include "@app/views/post/elements/tag_picker.twig" %}
+
+		<div class="row margin-bottom">
+			<div class="col-sm-8 col-sm-offset-2 ">
+				{{ form.field(model, 'text').textarea().label("Description &nbsp; <small> (optional)</small>") | raw }}
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-sm-offset-2">
+			{{ html.submitButton(model.isNewRecord ? 'Create' : 'Update', { 'class' : 'btn btn-lg btn-primary' }) | raw }}
+		</div>
+
+		<div class="form-group">
+		</div>
+
+		{{ active_form_end() }}
+
+	</div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+	$(function() {
+
+	new Dropzone(document.body, { // Make the whole body a dropzone
+
+		url: "{{ app.params.basePath }}/post/upload",
+		previewsContainer: ".dropzone",
+		clickable: ".dropzone",
+
+		thumbnailHeight:"250",
+		thumbnailWidth: null,
+
+
+		//Replace old file if new one is dropped in
+		maxFiles: 1,
+		maxfilesexceeded: function(file) {
+			this.removeAllFiles();
+			this.addFile(file);
+		},
+
+		//Init upload to server, get csrf to include
+		sending: function(file, xhr, formData) {
+			formData.append("_csrf", "{{ app.request.getCsrfToken() }}");
+		},
+
+		complete: function() {
+
+		},
+
+		//On upload complete
+		success: function(file) {
+			console.log(file);
+
+			var response = JSON.parse(file.xhr.response);
+
+			//Set values into hidden fields for form.
+			$("#post-file").val(response.file);
+			$("#post-thumb").val(response.thumb);
+			$("#post-type").val(file.type);
+
+			//Use given thumbnail for dropzones preview.
+			file.previewElement.querySelector("img").src = "{{ app.params.basePath }}/uploads/thumb/" + response.thumb;
+
+			$(".dz-message").hide("slow");
+			$(".dz-progress").hide("slow");
+		}
+
+
+		//autoProcessQueue:false,
+
+	});
+
+	Dropzone.autoDiscover = false;
+
+	});
+</script>
+
+{% endblock %}

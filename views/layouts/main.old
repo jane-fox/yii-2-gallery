@@ -1,0 +1,123 @@
+<?php
+
+	use yii\helpers\Html;
+	use app\assets\AppAsset;
+
+	AppAsset::register($this);
+
+?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
+	<?php $base_url = Yii::$app->params["basePath"]; ?>
+
+	<meta charset="UTF-8" />
+	<meta name="language" content="en" />
+	<meta name="description" content="">
+	<meta name="author" content="some fox">
+	<meta name="keywords" content="">
+
+	<link rel="icon" href="<?php echo $base_url; ?>/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="<?php echo $base_url; ?>/css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $base_url; ?>/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $base_url; ?>/css/video-js.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $base_url; ?>/css/dropzone.css" />
+
+	<link rel="stylesheet" type="text/css" href="<?php echo $base_url; ?>/css/master.css" />
+
+
+</head>
+
+<body>
+
+
+<div id="underlay"></div>
+
+
+<?php $this->beginBody() ?>
+
+<div class="container" id="site-wrapper">
+
+
+	<header id="site-header" class="row clearfix">
+
+		<h1 id="site-logo"><a href="<?= $base_url; ?>/">Cool Website</a></h1>
+
+
+
+		<nav id="account-nav">
+
+			<?php if (Yii::$app->user->isGuest) { ?>
+
+				<a href="<?= $base_url; ?>/login">Log In</a>
+				<a href="<?= $base_url; ?>/register">Sign Up</a>
+
+			<?php } else { ?>
+
+				<a href="<?= $base_url; ?>/upload">Upload</a>
+				<a href="<?= $base_url; ?>/user/logout" data-method="post">Log Out</a>
+
+			<?php } ?>
+
+		</nav>
+		
+		<nav id="site-nav">
+			<a href="<?= $base_url; ?>/post/all" <?php if (Yii::$app->controller->action->id=="all") { ?>class="active" <?php } ?>>All</a>
+			<a href="<?= $base_url; ?>/post/videos" <?php if (Yii::$app->controller->action->id=="videos") { ?>class="active" <?php } ?>>Vid</a>
+			<a href="<?= $base_url; ?>/post/pictures" <?php if (Yii::$app->controller->action->id=="pictures") { ?>class="active" <?php } ?>>Pic</a>
+
+		</nav>
+
+	</header>
+
+	<!--[if lt IE 9]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+
+	<div id="main-content">
+		<?= $content ?>
+	</div>
+
+
+
+<div class="clearfix"></div>
+
+<footer id="site-footer" class="row">
+
+
+		<p><a href="#">Home</a></p>
+
+
+</footer>
+
+</div>
+
+
+<?php $this->endBody() ?>
+
+
+<script type="text/javascript" src="<?php echo $base_url; ?>/js/lib/lodash.min.js"></script>
+<script type="text/javascript" src="<?php echo $base_url; ?>/js/lib/backbone.min.js"></script>
+<script type="text/javascript" src="<?php echo $base_url; ?>/js/lib/dropzone.js"></script>
+<script type="text/javascript" src="<?php echo $base_url; ?>/js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo $base_url; ?>/js/lib/handlebars.min.js"></script>
+<script type="text/javascript" src="<?php echo $base_url; ?>/js/lib/video.min.js"></script>
+
+
+<script type="text/javascript" src="<?php echo $base_url; ?>/js/tag_picker.js"></script>
+
+
+<?= $this->blocks['js'] ?>
+
+</body>
+</html>
+
+<?php $this->endPage() ?>
